@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Chat personal</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css' />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
   <link rel="stylesheet" href="css/styles.css">
 
 </head>
@@ -13,9 +13,9 @@
 <body>
 
   <div class="information-bubble">
-    <h3>Estado del chat: 
-      <small id="status-online">online</small> 
-      <small id="status-offline">offline</small>  
+    <h3>Estado del chat:
+      <small class="hidden" id="status-online">online</small>
+      <small class="hidden" id="status-offline">offline</small>
     </h3>
 
     <h3>Personas conectadas</h3>
@@ -90,7 +90,7 @@
 
 
   <!-- Scripts -->
-  <script src="socket.io/socket.io.js"></script>
+  <script src="socket.io/socket.io.min.js"></script>
   <script src="js/chat.js"></script>
 
 </body>

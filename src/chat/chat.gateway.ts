@@ -12,10 +12,18 @@ export class ChatGateway implements OnModuleInit {
 
   onModuleInit() {
     this.server.on('connection', (socket: Socket) => {
-      console.log('Cliente conectado:', socket.id);
+      // console.log( socket );
+
+      const { name, token } = socket.handshake.auth;
+      console.log({ name, token });
+
+      if ( !name ) {
+        socket.disconnect();
+        return;
+      }
 
       socket.on('disconnect', () => {
-        console.log('Cliente desconectado:', socket.id);
+        // console.log('Cliente desconectado:', socket.id);
       });
     });
   }
