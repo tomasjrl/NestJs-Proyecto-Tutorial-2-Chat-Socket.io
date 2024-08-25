@@ -31,12 +31,12 @@ const renderMessage = (payload) => {
     divElement.classList.add('incoming');
   }
 
-    divElement.innerHTML = message;
-    chatElement.appendChild(divElement);
+  divElement.innerHTML = `<small>${name}</small> <p>${message}</p>`;
+  chatElement.appendChild(divElement);
 
-    // Scroll al final de los mensajes
-    chatElement.scrollTop = chatElement.scrollHeight;
-  };
+  // Scroll al final de los mensajes
+  chatElement.scrollTop = chatElement.scrollHeight;
+};
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
