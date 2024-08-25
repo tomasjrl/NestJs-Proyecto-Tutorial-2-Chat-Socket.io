@@ -14,6 +14,7 @@ const sendIcon = document.querySelector('.fa-paper-plane');
 const chatElement = document.querySelector('#chat');
 const nameElement = document.querySelector('.name');
 const seenElement = document.querySelector('.seen');
+const timeElement = document.querySelector('.time');
 const currentTime = new Date().toLocaleTimeString('es-AR', {
   hour: '2-digit',
   minute: '2-digit',
@@ -71,6 +72,7 @@ nameElement.textContent = socket.auth.name;
 
 //cambio hora por defecto por la del usuario
 seenElement.textContent = `Hoy a las ${currentTime}`;
+timeElement.textContent = `Hoy a las ${currentTime}`;
 
 socket.on('connect', () => {
   lblStatusOnline.classList.remove('hidden');
