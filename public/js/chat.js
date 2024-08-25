@@ -11,6 +11,9 @@ const usersUlElement = document.querySelector('ul');
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const chatElement = document.querySelector('#chat');
+const nameElement = document.querySelector('.name');
+const seenElement = document.querySelector('.seen');
+const currentTime = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', hour12: false });
 
 const renderUsers = (users) => {
   usersUlElement.innerHTML = '';
@@ -52,6 +55,14 @@ const socket = io({
     name: username,
   },
 });
+
+
+  //cambio nombre defecto por el del usuario
+nameElement.textContent = socket.auth.name;
+// console.log(socket.auth.name);
+
+//cambio hora por defecto por la del usuario
+seenElement.textContent = `Hoy a las ${currentTime}`;
 
 socket.on('connect', () => {
   lblStatusOnline.classList.remove('hidden');
