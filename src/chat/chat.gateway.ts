@@ -47,7 +47,8 @@ handleMessage(
 ) {
 
 const {name , token} = client.handshake.auth;
-console.log({name, message});
+const currentTime = new Date().toLocaleTimeString('en-US', { hour12: false, hour: '2-digit', minute: '2-digit' }).replace(/^24:/, '00:');
+console.log({name, message , currentTime });
 
 if ( !message) {
   return;
@@ -59,6 +60,7 @@ this.server.emit(
   userId: client.id,
   message: message, //se puede poner message (solo)
   name: name, //se puede poner name (solo)
+  time: currentTime
 }
 )
 }

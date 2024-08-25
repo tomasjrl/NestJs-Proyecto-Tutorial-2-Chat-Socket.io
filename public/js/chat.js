@@ -31,7 +31,7 @@ const renderUsers = (users) => {
 };
 
 const renderMessage = (payload) => {
-  const { userId, message, name } = payload;
+  const { userId, message, name, time } = payload;
 
   const divElement = document.createElement('div');
   divElement.classList.add('message');
@@ -40,7 +40,7 @@ const renderMessage = (payload) => {
     divElement.classList.add('incoming');
   }
 
-  divElement.innerHTML = `<small>${name}</small> <p>${message}</p>`;
+  divElement.innerHTML = `<small>${name}</small> <small>${time}</small> <p>${message}</p>`;
   chatElement.appendChild(divElement);
 
   // Scroll al final de los mensajes
