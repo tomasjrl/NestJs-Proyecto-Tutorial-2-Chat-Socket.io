@@ -10,10 +10,15 @@ const lblStatusOffline = document.querySelector('#status-offline');
 const usersUlElement = document.querySelector('ul');
 const form = document.querySelector('form');
 const input = document.querySelector('input');
+const sendIcon = document.querySelector('.fa-paper-plane');
 const chatElement = document.querySelector('#chat');
 const nameElement = document.querySelector('.name');
 const seenElement = document.querySelector('.seen');
-const currentTime = new Date().toLocaleTimeString('es-AR', { hour: '2-digit', minute: '2-digit', hour12: false });
+const currentTime = new Date().toLocaleTimeString('es-AR', {
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+});
 
 const renderUsers = (users) => {
   usersUlElement.innerHTML = '';
@@ -41,6 +46,10 @@ const renderMessage = (payload) => {
   chatElement.scrollTop = chatElement.scrollHeight;
 };
 
+sendIcon.addEventListener('click', () => {
+  form.requestSubmit();
+});
+
 form.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -56,8 +65,7 @@ const socket = io({
   },
 });
 
-
-  //cambio nombre defecto por el del usuario
+//cambio nombre defecto por el del usuario
 nameElement.textContent = socket.auth.name;
 // console.log(socket.auth.name);
 
